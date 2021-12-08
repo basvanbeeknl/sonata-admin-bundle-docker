@@ -82,7 +82,7 @@ ENV PATH="${PATH}:/root/.composer/vendor/bin"
 WORKDIR /srv/app
 
 # Allow to choose skeleton
-ARG SKELETON="symfony/skeleton"
+ARG SKELETON="sonata-project/admin-bundle"
 ENV SKELETON ${SKELETON}
 
 # Allow to use development versions of Symfony
