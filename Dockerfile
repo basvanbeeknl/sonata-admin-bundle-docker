@@ -4,7 +4,7 @@
 
 
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
-ARG PHP_VERSION=8.1
+ARG PHP_VERSION=8.0
 ARG CADDY_VERSION=2
 
 # "php" stage
@@ -101,6 +101,12 @@ RUN composer create-project "${SKELETON} ${SYMFONY_VERSION}" . --stability=$STAB
 ###< recipes ###
 
 COPY . .
+
+# BVB Media: Install npm and yarn inside PHP container
+RUN apk add --no-cache \
+		npm \
+		yarn \
+;
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
